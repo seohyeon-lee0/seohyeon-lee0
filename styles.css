@@ -1,0 +1,290 @@
+/* 공통 스타일 */
+body, html {
+  margin: 5px;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Pretendard, sans-serif;
+  justify-content: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.date, .author {
+  font-size: 2.5rem; /* 기본 폰트 크기 */
+  font-weight: bold;
+  text-align: left;
+  word-wrap: break-word; /* 단어가 화면을 넘어갈 경우 줄바꿈 */
+  white-space: normal; /* 자동 줄바꿈 허용 */
+}
+
+.author {
+  text-align: right; /* 오른쪽 정렬 */
+}
+
+/* 기본값: 1200px 이상 */
+.date, .author {
+  max-width: 30%;
+  width: 30%;
+}
+
+@media (max-width: 1200px) and (min-width: 992px) {
+  .date, .author {
+    max-width: 25%;
+    width: 25%
+  }
+
+  .scroll-text {
+    font-size: 1.3rem; /* 폰트 크기 조정 */
+  }
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+  .date, .author {
+    max-width: 20%;
+    width: 20%
+  }
+
+  .scroll-text {
+    font-size: 1.2rem; /* 폰트 크기 조정 */
+  }
+}
+
+@media (max-width: 768px) and (min-width: 576px) {
+  .date, .author {
+    max-width: 10%;
+    width: 10%;
+  }
+
+  .scroll-text {
+    font-size: 1.1rem; /* 폰트 크기 조정 */
+  }
+}
+
+@media (max-width: 576px) {
+  .date {
+    max-width: 9%; /* 너비를 9%로 유지 */
+    text-align: end; /* 텍스트 가운데 정렬 */
+    writing-mode: vertical-lr; /* 세로쓰기 모드 */
+    transform: rotate(180deg); /* 텍스트 뒤집기 (위쪽이 읽기 방향) */
+    line-height: normal; /* 라인 간격 초기화 */
+  }
+
+  .author {
+    max-width: 9%; /* 너비를 9%로 유지 */
+    text-align: left; /* 텍스트 가운데 정렬 */
+    writing-mode: vertical-lr; /* 세로쓰기 모드 */
+    transform: rotate(360deg); /* 텍스트 뒤집기 (위쪽이 읽기 방향) */
+    line-height: normal; /* 라인 간격 초기화 */
+  }
+
+  .scroll-text {
+    font-size: 0.7rem; /* 폰트 크기 조정 */
+  }
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 29px;
+}
+
+.main-content {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.line {
+  width: 30%;
+  height: 2px;
+  background-color: #000;
+}
+
+/* Oval container 스타일 */
+.oval-container {
+  position: relative;
+  max-height: 100vh; /* 최대 높이: 화면 높이의 100% */
+  height: 87vh; /* 초기 높이: 화면 높이의 87% */
+  width: calc(87vh * 394 / 538); /* 이미지 원본 크기의 비율로 조정 */
+  margin: 0 auto;
+  overflow: hidden; /* 타원 밖 요소 숨기기 */
+  border-radius: 50%; /* 타원 모양 */
+  background: #e0e0e0; /* 배경색 */
+}
+
+/* 슬라이더 스타일 */
+.slider {
+  display: flex;
+  transition: transform 1s ease-in-out; /* 부드러운 전환 */
+  width: 100%; /* 슬라이더가 타원 크기만큼 채움 */
+  height: 100%; /* 슬라이더가 타원 높이만큼 채움 */
+}
+
+.slider-image {
+  width: 100%; /* 이미지를 부모 요소(슬라이더) 너비에 맞춤 */
+  height: 100%; /* 이미지를 부모 요소(슬라이더) 높이에 맞춤 */
+  object-fit: cover; /* 이미지가 타원을 꽉 채우도록 크기 조정 */
+  object-position: center; /* 이미지를 중앙에 맞춤 */
+}
+
+.scroll-text {
+  position: absolute;
+  width: 45%; /* 최대 화면 너비의 45% */
+  font-size: 1.5rem; /* 기본 폰트 크기 */
+  line-height: 1.5;
+  opacity: 0; /* 기본 상태는 보이지 않음 */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scroll-text.left {
+  top: 60%; /* 위치 */
+  left: 5%; /* 화면 왼쪽에서 5% 떨어짐 */
+  text-align: left;
+  transform: translateY(50px); /* 초기 위치 */
+}
+
+.scroll-text.right {
+  top: 60%; /* 위치 */
+  right: 5%; /* 화면 오른쪽에서 5% 떨어짐 */
+  text-align: right;
+  transform: translateY(50px); /* 초기 위치 */
+}
+
+/* 두 번째 페이지 */
+.second-page {
+  position: relative;
+  height: 250vh; /* 2.5 페이지 높이 */
+  background-color: #f4f4f4;
+}
+
+.image-container {
+  position: relative;
+  height: 100%; /* 두 페이지 영역 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start; /* 이미지가 위에서 아래로 정렬되도록 설정 */
+  padding: 50px 0;
+}
+
+.image {
+  position: absolute;
+  object-fit: cover; /* 이미지를 박스에 맞춤 */
+  transition: transform 0.3s ease; /* 마우스 호버 시 크기 변경 효과 */
+}
+
+/* 개별 이미지 위치와 크기 */
+.img-1 { top: 5%; left: 7%; width: 20%; height: auto; }
+.img-2 { top: 15%; left: 29%; width: 20%; height: auto; }
+.img-3 { top: 4%; left: 51%; width: 20%; height: auto; }
+.img-4 { top: 15%; left: 73%; width: 20%; height: auto; }
+.img-5 { top: 34%; left: 8%; width: 20%; height: auto; }
+.img-6 { top: 31%; left: 51%; width: 20%; height: auto; }
+.img-7 { top: 54%; left: 30.5%; width: 20%; height: auto; }
+.img-8 { top: 60%; left: 71.7%; width: 20%; height: auto; }
+.img-9 { top: 68%; left: 7.7%; width: 20%; height: auto; }
+.img-10 { top: 73.5%; left: 48.5%; width: 20%; height: auto; }
+
+/* 링크 위치와 크기 */
+.link-mid { top: 93.2%; left: 88.7%; width: 10%; height: auto; }
+
+/* 서브 페이지 스타일 */
+.subpage-container {
+  display: flex;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.subpage-container .image-section {
+  flex: 3; /* 전체 비율에서 6/10을 차지 (6:4 비율) */
+  background-color: #f7f7f7; /* 연한 회색 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.subpage-container .image-section img {
+  height: 80vh; /* 화면 세로의 80% */
+  object-fit: contain; /* 비율을 유지하며 크기 조정 */
+}
+
+.subpage-container .text-section {
+  flex: 2; /* 전체 비율에서 4/10을 차지 (6:4 비율) */
+  background-color: #fff; /* 흰색 배경 */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subpage-container .text-section h1 {
+  font-size: 55px;
+  font-weight: 700;
+  margin-left: 15px;
+  margin-top: -10px;
+  margin-right: 15px;
+  margin-bottom: 60px;
+  line-height: 64px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.subpage-container .text-section p {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.75;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  padding-left: 28px;
+  padding-right: 28px;
+  color: #333;
+  word-break: keep-all;
+  line-break: anywhere;
+  white-space: normal;
+}
+
+/* 메인 페이지 링크 */
+.back-to-main {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-block; /* 이미지로 변경 시 inline-block으로 설정 */
+  width: 44px; /* 이미지 너비 */
+  height: 37px; /* 이미지 높이 */
+}
+
+.back-to-main img {
+  width: 100%; /* 부모의 너비에 맞춤 */
+  height: 100%; /* 부모의 높이에 맞춤 */
+  margin-left: 10px;
+  margin-top: 20px;
+  object-fit: contain; /* 이미지 비율 유지하며 크기 조정 */
+}

@@ -1,0 +1,579 @@
+/* Pretendard 폰트 설정 */
+@font-face {
+    font-family: 'Pretendard';
+    src: local('Pretendard'), url('fonts/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: local('Pretendard'), url('fonts/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: local('Pretendard'), url('fonts/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: local('Pretendard'), url('fonts/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: local('Pretendard'), url('fonts/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: local('Pretendard'), url('fonts/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: local('Pretendard'), url('fonts/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: local('Pretendard'), url('fonts/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: local('Pretendard'), url('fonts/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pridi';
+    src: local('Pridi'), url('fonts/Pridi-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Pridi';
+    src: local('Pridi'), url('fonts/Pridi-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+body {
+    font-family: Pretendard, Pridi, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    height: 100vh;
+    color: black;
+}
+
+.left img {
+    top: 50%;
+    left: 50%;
+    max-width: 50%;
+    height: auto;
+    position: relative;
+    transform: translate(-50%, -50%);
+}
+
+/* 페이지 1과 2 사이의 선 : 굵기는 height를 변경 */
+.line-main-1 {
+    display: flex;
+    left: 50%;
+    width: 50%;
+    height: 4.5px;
+    background-color: black;
+    margin: 30px 0;
+    position: relative;
+}
+
+/*
+.left, .right {
+    width: 50%;
+    position: relative;
+    text-align: center;
+    height: 100%;
+}
+*/
+
+.left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%; /* 왼쪽 영역의 너비 조정 */
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*
+.right {
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+}
+
+*/
+
+.right {
+    background-color: #ffffff;
+    margin-left: 50%; /* 오른쪽 영역이 왼쪽 영역 옆에 오도록 위치 조정 */
+    width: 50%;
+    overflow-y: scroll;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.page1 .right {
+    position: relative;
+    overflow-y: hidden;
+    height: 100%;
+    background-color: #f0f0f0; /* 연한 회색 배경색 */
+}
+
+.page1 .right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0; /* 연한 회색 배경 */
+    z-index: 1;
+}
+
+.page1 .right::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/back1.png');
+    background-size: 100% 110%;
+    background-position: center -12px;
+    background-repeat: no-repeat;
+    opacity: 0.95; /* 투명도 조정 */
+    z-index: 2;
+}
+
+.page1 .right .content {
+    position: relative;
+    z-index: 3;
+    padding-left: 52.5px;
+    padding-right: 52.5px;
+    background-color: rgba(255, 255, 255, 0); /* 본문 배경 투명 */
+}
+
+.content {
+    width: 100%;
+    background-color: #cfcfcf78;
+    padding: 20px 70px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.center-align {
+    text-align: center;
+}
+
+/* Page 1 */
+/*.page1 .content h1, .page1 .content h4 {*/
+.page1 .content h1 {
+    position: relative;
+    color: black;
+    font-weight: bold;
+    margin: 10px 0;
+    display: block;
+    animation: waveEffect 4s ease-in-out infinite;
+}
+
+.page1 .content h1 {
+    font-size: 155px;
+    margin: 0;
+    width: 100%;
+    line-height: 1.0;
+}
+
+.page1 .content h4 {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0;
+    width: 100%;
+    line-height: 0.9;
+    font-family: 'Pretendard', sans-serif;
+}
+
+@keyframes waveEffect {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-3px, -5px); }
+    50% { transform: translate(3px, 5px); }
+    75% { transform: translate(-5px, 3px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* 각 텍스트 요소에 지연 시간 추가 */
+.page1 .content h1:nth-of-type(1) {
+    animation-delay: 0.1s;
+}
+
+.page1 .content h1:nth-of-type(2) {
+    animation-delay: 0.3s;
+}
+
+.page1 .content h1:nth-of-type(3) {
+    animation-delay: 0.5s;
+}
+
+.page1 .content h1:nth-of-type(4) {
+    animation-delay: 0.7s;
+}
+
+/*
+.page1 .content h4 {
+    -animation-delay: 0.1s;
+}
+*/
+
+/* Page 2 */
+.page2 .left .overlay-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 90%;
+    height: auto;
+    opacity: 0.2;
+    transition: opacity 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.page2 .show-overlay .overlay-image {
+    opacity: 0.5;
+}
+
+.page2 .left .main-image {
+    top: 40%;
+    left: 50%;
+    max-width: 90%;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+}
+
+.page2 .right {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.page2-content {
+    position: relative;
+    z-index: 2;
+}
+
+.page2 .content h2 {
+    font-size: 69px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.page2 .content h3 {
+    font-size: 65px;
+    font-weight: 600;
+    line-height: 1.22;
+    text-align: center;
+}
+
+.page2 .content h4 {
+    font-size: 67px;
+    font-weight: 600;
+    line-height: 1.22;
+    text-align: center;
+    letter-spacing: 1.28px;
+}
+
+.page2 .content h2:nth-of-type(odd) {
+    animation: slideInFromLeft 8s ease infinite;
+}
+
+.page2 .content h2:nth-of-type(even) {
+    animation: slideInFromRight 8s ease infinite;
+}
+
+@keyframes slideInFromLeft {
+    0% { opacity: 0; transform: translate3d(-30%, 0, 0); }
+    50% { opacity: 1; transform: translate3d(0, 0, 0); }
+    100% { opacity: 0; transform: translate3d(30%, 0, 0); }
+}
+
+@keyframes slideInFromRight {
+    0% { opacity: 0; transform: translate3d(30%, 0, 0); }
+    50% { opacity: 1; transform: translate3d(0, 0, 0); }
+    100% { opacity: 0; transform: translate3d(-30%, 0, 0); }
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-5px, -5px); }
+    50% { transform: translate(5px, 5px); }
+    75% { transform: translate(-5px, 5px); }
+    100% { transform: translate(0, 0); }
+}
+
+.shake {
+    animation: shake 0.5s infinite;
+}
+
+.paused {
+    animation-play-state: paused !important;
+}
+
+.page2 .content h2:hover {
+    color: black;
+    font-weight: 800;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .page2 .content h2 {
+        font-size: 36px;
+    }
+    .page2 .content h3, .page2 .content h4 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page2 .content h2 {
+        font-size: 28px;
+    }
+    .page2 .content h3, .page2 .content h4 {
+        font-size: 24px;
+    }
+}
+
+/* Page 3 */
+.text-toggle {
+    word-break: keep-all;      /* 한국어 텍스트가 자연스럽게 줄바꿈되도록 */
+    white-space: pre-line;     /* 줄바꿈을 보존하면서 텍스트를 표시 */
+}
+
+.page3 .right {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.page3 .content h4 {
+    font-size: 30px;
+    margin: 0;
+    width: 100%;
+}
+
+.page3 .content h5 {
+    font-size: 28px;
+    margin: 0;
+    width: 100%;
+    line-height: 1.9;
+}
+
+.page3 .content h41 {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+    width: 100%;
+}
+
+.page3 .left .overlay-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 90%;
+    height: auto;
+    opacity: 0.2;
+    transition: opacity 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.page3 .show-overlay .overlay-image {
+    opacity: 0.5;
+}
+
+.page3 .left .main-image {
+    top: 50%;
+    left: 50%;
+    max-width: 90%;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+}
+
+.page3 .icon-hover {
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.page3 .icon-hover:hover {
+    color: darkred;
+}
+
+.page3 .line {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin: 30px 0;
+}
+
+/* Page 4 */
+.page4 .right {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.page4 .content h31 {
+    font-size: 44px;
+    font-weight: 700;
+    margin: 0;
+    width: 100%;
+    line-height: 1.4;
+}
+
+.page4 .content h32 {
+    font-size: 44px;
+    font-weight: 600;
+    margin: 0;
+    width: 100%;
+    line-height: 1.4;
+}
+
+.page4 .content h4 {
+    font-size: 35px;
+    font-weight: 500;
+    margin: 0;
+    padding-left: 70px;
+    width: 100%;
+}
+
+.page4 .left .overlay-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 90%;
+    height: auto;
+    opacity: 0.2;
+    transition: opacity 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.page4 .show-overlay .overlay-image {
+    opacity: 0.5;
+}
+
+.page4 .left .main-image {
+    top: 45%;
+    left: 50%;
+    max-width: 70%;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+}
+
+/* Page 5 */
+.page5 .right {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.page5 .content h4 {
+    font-size: 30px;
+    margin: 0;
+    width: 100%;
+}
+
+.page5 .content h5 {
+    font-size: 27px;
+    margin: 0;
+    width: 100%;
+    line-height: 1.8;
+}
+
+.page5 .left .overlay-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 90%;
+    height: auto;
+    opacity: 0.2;
+    transition: opacity 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.page5 .show-overlay .overlay-image {
+    opacity: 0.5;
+}
+
+.page5 .left .main-image {
+    top: 45%;
+    left: 50%;
+    max-width: 90%;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+}
+
+.page5 .line {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin: 30px 0;
+}
+
+/* Page 6 */
+.page6 .right {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
